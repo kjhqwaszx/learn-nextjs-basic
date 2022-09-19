@@ -39,16 +39,21 @@ export default function List({todoData, setTodoData}) {
     <div>
       {todoData.map( data => (
           <div style={getStyle(data.completed)} key={data.id}>
-            <input 
-              type="checkbox" 
-              defaultChecked={false}
-              onChange= {() =>handleCompletedChange(data.id)} 
-            />
-              {data.title}
-            <button style={btnStyle} onClick={ () => handleClick(data.id) }>x</button>
+            <div className='flex items-center justify-between w-full px-4 py-1 my-2 text-gray-600 bg-gray-100 border rounded'>
+              <div className='items-center'>
+                <input 
+                  type="checkbox" 
+                  defaultChecked={false}
+                  onChange= {() =>handleCompletedChange(data.id)} 
+                />
+                <span className= {data.completed ? "line-through" : undefined}>{data.title}</span>
+              </div>
+              <div className='items-center'>
+                <button className='px-4 py-2 float-right' onClick={ () => handleClick(data.id) }>x</button>
+              </div>
+            </div>
           </div>
         ))}
     </div>
-    
   )
 }
