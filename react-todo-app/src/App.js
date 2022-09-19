@@ -27,7 +27,6 @@ export default function App(){
         <div className = 'title' >
           <h1> 할 일 목록</h1>
         </div>
-
         <List todoData={todoData} setTodoData={setTodoData} ></List>
         <Form value={value} setValue={setValue} handleSubmit={handleSubmit}></Form>
         
