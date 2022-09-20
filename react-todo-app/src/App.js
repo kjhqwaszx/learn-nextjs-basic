@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import './App.css'
 import Form from './components/Form'
-import List from './components/List'
+import Lists from './components/Lists'
 
 export default function App(){
   const [todoData,setTodoData] = useState([])
   const [value, setValue] = useState("")
   
-    const handleSubmit = (event) =>{
+  const handleSubmit = (event) =>{
     //page reload 방지
     event.preventDefault();
     
@@ -27,7 +27,8 @@ export default function App(){
         <div className = 'flex justify-between mb-3' >
           <h1> 할 일 목록</h1>
         </div>
-        <List todoData={todoData} setTodoData={setTodoData} ></List>
+
+        <Lists todoData={todoData} setTodoData={setTodoData} ></Lists>
         <Form value={value} setValue={setValue} handleSubmit={handleSubmit}></Form>
         
       </div>
