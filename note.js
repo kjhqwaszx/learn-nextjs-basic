@@ -8,37 +8,36 @@
     
 */
 
-
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import List from "./react-todo-app/src/components/List";
 const [todoData, setTodoData] = useState([]);
 
-setTodoData(prev => [...prev, newTodo])
+setTodoData((prev) => [...prev, newTodo]);
 
 /**
  * [ 구조분해할당 ]
  *   - 객체 및 배열을 구조분해하여 할당하는 것.
  *   - 소스가 간결해진다.
- * 
+ *
  */
 
 // 1.
 const studentDetail1 = {
-  firstName: 'John',
-  lastName: 'Mary'
-}
+  firstName: "John",
+  lastName: "Mary",
+};
 
-const {firstName, lastName} = studentDetail;
+const { firstName, lastName } = studentDetail;
 
 // 2.
 const studentDetail2 = {
-  firstName: 'John',
-  lastName: 'Mary'
-}
+  firstName: "John",
+  lastName: "Mary",
+};
 
 // fisrtName 값을 fName변수로 사용할 것이고, 값이 넘어오지 않으면 not given 사용
-const {firstName: fName ='not given', lastName: lName = 'not given'} = studentDetail;
-
+const { firstName: fName = "not given", lastName: lName = "not given" } =
+  studentDetail;
 
 /**
  * [ Route.memo ]
@@ -50,14 +49,12 @@ const {firstName: fName ='not given', lastName: lName = 'not given'} = studentDe
  */
 
 //props 인 todoData와 setTodoData가 변경되면 랜더링 된다.
-const Lists = React.memo( ({ todoData, setTodoData, testMethods }) => {
+const Lists = React.memo(({ todoData, setTodoData, testMethods }) => {
   // ...
 
   return (
-      // 드레그를 놓았을때의 위치 값으로 todoData배열 재설정
-      <div>
-        ...
-      </div>
+    // 드레그를 놓았을때의 위치 값으로 todoData배열 재설정
+    <div>...</div>
   );
 });
 
@@ -69,10 +66,10 @@ const Lists = React.memo( ({ todoData, setTodoData, testMethods }) => {
  * 이때, useCallback 을 사용해 의존 변수가 변하지 않으면 testMethods는 변화된 것이 아니라고 알린다.
  *
  */
-const handleClick = useCallback( (id) => {
-    let newTodoData = todoData.filter((data) => data.id !== id);
-    setTodoData(newTodoData);
-}, todoData)  // todoData를 의존 변수로 설정
+const handleClick = useCallback((id) => {
+  let newTodoData = todoData.filter((data) => data.id !== id);
+  setTodoData(newTodoData);
+}, todoData); // todoData를 의존 변수로 설정
 
 /**
  * [ useMemo ] _ Memoization
@@ -80,15 +77,14 @@ const handleClick = useCallback( (id) => {
  * 화면이 자주 랜더링 되거나, 자주 사용되는 함수는 useMemo를 적용하면 성능이 향상될 가능성이 있다.
  * */
 
-    // compute 함수가 비용이 많이 든다고 가정.
-    const Component = ( {a,b}) => {
-        const result = compute(a,b)
-        return <div>{result} </div>
-    }
+// compute 함수가 비용이 많이 든다고 가정.
+const Component = ({ a, b }) => {
+  const result = compute(a, b);
+  return <div>{result} </div>;
+};
 
-    // a,b 가 동일 할 경우 캐시된 데이터를 반환한다.
-    const Component = ({a,b}) => {
-        const result = useMemo( () => compute(a,b), [a,b]) // [a,b] 의존성 배열
-        return <div>{result}</div>
-    }
-
+// a,b 가 동일 할 경우 캐시된 데이터를 반환한다.
+const Component = ({ a, b }) => {
+  const result = useMemo(() => compute(a, b), [a, b]); // [a,b] 의존성 배열
+  return <div>{result}</div>;
+};

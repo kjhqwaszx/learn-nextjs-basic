@@ -2,8 +2,7 @@ import React from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 
-
-const Lists = React.memo( ({ todoData, setTodoData }) => {
+const Lists = React.memo(({ todoData, setTodoData }) => {
   const handleEnd = (result) => {
     if (!result.destination) return;
 
@@ -19,36 +18,36 @@ const Lists = React.memo( ({ todoData, setTodoData }) => {
   };
 
   return (
-      // 드레그를 놓았을때의 위치 값으로 todoData배열 재설정
-      <div>
-        <DragDropContext onDragEnd={handleEnd}>
-          <Droppable droppableId="todo">
-            {(provided) => (
-                // Droppable 에서 주는 정보를 div 태그에 전달
-                <div {...provided.droppableProps} ref={provided.innerRef}>
-                  {todoData.map((data, index) => (
-                      <Draggable key={data.id} draggableId={data.id.toString()} index={index}>
-                        {(provided, snapshot) => (
-                            // Draggable 데이터 전달
-                            <List
-                                key={data.id}
-                                id={data.id}
-                                title={data.title}
-                                completed={data.completed}
-                                todoData={todoData}
-                                setTodoData={setTodoData}
-                                provided={provided}
-                                snapshot={snapshot}
-                            ></List>
-                        )}
-                      </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-            )}
-          </Droppable>
-        </DragDropContext>
-      </div>
+    // 드레그를 놓았을때의 위치 값으로 todoData배열 재설정
+    <div>
+      <DragDropContext onDragEnd={handleEnd}>
+        <Droppable droppableId="todo">
+          {(provided) => (
+            // Droppable 에서 주는 정보를 div 태그에 전달
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {todoData.map((data, index) => (
+                <Draggable key={data.id} draggableId={data.id.toString()} index={index}>
+                  {(provided, snapshot) => (
+                    // Draggable 데이터 전달
+                    <List
+                      key={data.id}
+                      id={data.id}
+                      title={data.title}
+                      completed={data.completed}
+                      todoData={todoData}
+                      setTodoData={setTodoData}
+                      provided={provided}
+                      snapshot={snapshot}
+                    ></List>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </div>
   );
 });
 
