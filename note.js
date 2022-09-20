@@ -73,3 +73,22 @@ const handleClick = useCallback( (id) => {
     let newTodoData = todoData.filter((data) => data.id !== id);
     setTodoData(newTodoData);
 }, todoData)  // todoData를 의존 변수로 설정
+
+/**
+ * [ useMemo ] _ Memoization
+ * 메모이제이션은 비용이 많이 드는 함수 호출의 결과를 저장하고 동일한 파라미터가 들어왔을 때, 캐시된 결과를 반환하는 것이다.
+ * 화면이 자주 랜더링 되거나, 자주 사용되는 함수는 useMemo를 적용하면 성능이 향상될 가능성이 있다.
+ * */
+
+    // compute 함수가 비용이 많이 든다고 가정.
+    const Component = ( {a,b}) => {
+        const result = compute(a,b)
+        return <div>{result} </div>
+    }
+
+    // a,b 가 동일 할 경우 캐시된 데이터를 반환한다.
+    const Component = ({a,b}) => {
+        const result = useMemo( () => compute(a,b), [a,b]) // [a,b] 의존성 배열
+        return <div>{result}</div>
+    }
+
