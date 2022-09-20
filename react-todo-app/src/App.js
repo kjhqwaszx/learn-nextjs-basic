@@ -16,7 +16,6 @@ export default function App() {
     }, todoData);
   * */
 
-
   const handleSubmit = (event) => {
     //page reload 방지
     event.preventDefault();
@@ -30,16 +29,16 @@ export default function App() {
     setTodoData((prev) => [...prev, newTodo]);
     setValue('');
   };
-  const handleRemoveClick =()=>{
-    setTodoData([])
-  }
+  const handleRemoveClick = () => {
+    setTodoData([]);
+  };
 
   return (
     <div className="flex items-center justify-center w-screen h-screen bg-blue-100  ">
       <div className="w-full p-6 m-4 bg-white rounded shadow lg:w-3/4 lg:max-w-lg">
         <div className="flex justify-between mb-3">
           <h1> 할 일 목록</h1>
-          <button onClick={handleRemoveClick} > Delete All </button>
+          <button onClick={handleRemoveClick}> Delete All </button>
         </div>
 
         <Lists todoData={todoData} setTodoData={setTodoData}></Lists>
