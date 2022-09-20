@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './App.css';
 import Form from './components/Form';
 import Lists from './components/Lists';
@@ -6,6 +6,16 @@ import Lists from './components/Lists';
 export default function App() {
   const [todoData, setTodoData] = useState([]);
   const [value, setValue] = useState('');
+
+  /*
+  * useCallback 사용
+  *
+  * const handleClick = useCallback( (id) => {
+      let newTodoData = todoData.filter((data) => data.id !== id);
+      setTodoData(newTodoData);
+    }, todoData);
+  * */
+
 
   const handleSubmit = (event) => {
     //page reload 방지
