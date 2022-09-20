@@ -3,8 +3,12 @@ import './App.css';
 import Form from './components/Form';
 import Lists from './components/Lists';
 
+const initialTodoData = localStorage.getItem('todoData')
+  ? JSON.parse(localStorage.getItem('todoData'))
+  : [];
+
 export default function App() {
-  const [todoData, setTodoData] = useState([]);
+  const [todoData, setTodoData] = useState(initialTodoData);
   const [value, setValue] = useState('');
 
   /*
@@ -27,10 +31,12 @@ export default function App() {
     };
     //setter 호출 시 파라미터를 추가하면 oldValue
     setTodoData((prev) => [...prev, newTodo]);
+    localStorage.setItem('todoData', JSON.stringify([...todoData, newTodo]));
     setValue('');
   };
   const handleRemoveClick = () => {
     setTodoData([]);
+    localStorage.setItem('todoData', JSON.stringify([]));
   };
 
   return (
