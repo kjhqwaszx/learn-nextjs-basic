@@ -5,7 +5,7 @@ import react_logo from '../assets/img/react_logo.png';
 
 const Nav = () => {
   const [show, setShow] = useState(false);
-  console.log('test');
+  console.log('test2');
   useEffect(() => {
     //scroll 이벤트가 발생했을때 실행
     window.addEventListener('scroll', () => {
