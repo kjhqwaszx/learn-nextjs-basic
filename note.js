@@ -27,6 +27,8 @@
  *   ex) const [value, setValue] = useState(initData)
  *  - useEffect: Component의 mount / unmount / update를 기점으로 trigger
  *  - useContext: 컴포넌트를 중첩하지 않고 전역 값을 관리
+ *  - useRef: 특정 DOM을 선택할 때 사용하는 훅
+ *   -> 엘리먼트의 크기를 가져와야 할 때 / 스크롤바 위치를 가져와야할 때 / 특정 input태그에 포커스를 설정해 줘야 할 때 주로 사용
  *  - useReducer: 복잡한 컴포넌트들의 state를 관리 및 분리
  *  - useCallback: useCallback으로 선언한 함수는 메모리에 다시 할당되더라도 의존 변수가 바뀌지 않으면 기존의 함수 사용(메모리에 함수 재할당x)
  *    -> 이 부분은 React.memo와 연관이 있고, 경렬님이 말씀해주신 클로저의 단점을 보완할 수 있는 요소이다.

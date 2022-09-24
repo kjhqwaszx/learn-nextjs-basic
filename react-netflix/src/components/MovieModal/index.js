@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './MovieModal.css';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 const MovieModal = ({
   backdrop_path,
@@ -11,6 +12,13 @@ const MovieModal = ({
   vote_average,
   setModalOpen,
 }) => {
+  const ref = useRef();
+
+  //모달 밖 영역을 클릭할 경우 모달을 닫아준다.
+  useOnClickOutside(ref, () => {
+    setModalOpen(false);
+  });
+
   // 배경 스크롤 방지
   useEffect(() => {
     document.body.style.cssText = `
@@ -28,7 +36,8 @@ const MovieModal = ({
   return (
     <div className="presentation" role="presentation">
       <div className="wrapper-modal">
-        <div className="modal">
+        {/*선택하려는 Dom을 설정해 주어야 ref.current에 저장된다.*/}
+        <div className="modal" ref={ref}>
           <span onClick={() => setModalOpen(false)} className="modal-close">
             X
           </span>
