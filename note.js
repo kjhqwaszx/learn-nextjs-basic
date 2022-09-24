@@ -136,3 +136,33 @@ const Component = ({ a, b }) => {
   const result = useMemo(() => compute(a, b), [a, b]); // [a,b] 의존성 배열
   return <div>{result}</div>;
 };
+
+/**
+ * [ React-Router-Dom ]
+ *
+ *  1. BrowserRouter
+ *  HTML5 History API(pushState, replaceStae 및 popstate 이벤트)를 사용하여 UI를 url과 동기화된 상태로 유지해준다.
+ *   -> SPA에서는 하나의 index.html을 사용하므로 동기화 필요
+ *
+ *  2. Routes
+ *  앱에서 생성될 모든 개별 경로에 대한 컨테이너/상위 역할을 한다.
+ *  Route로 생성된 자식 컴포넌트 중에서 매칭되는 첫뻔째 Route를 렌더링해준다.
+ *
+ *  3.Route
+ *  단일 경로를 만드는데 사용하고 두 가지 속성을 취합한다.
+ *   - path: 원하는 컴포넌트의 url 경로를 지정한다.
+ *   - element: 경로에 맞는 컴포넌트
+ *
+ *  4. Router Dom APIS
+ *    - Nested Router ( 중첩 라우터 ): Vue의 children 느낌
+ *    - Outlet: 부모경로 요소에서 자식 경로 요소를 랜더링 하려면 <Outlet/>태그를 사용해야 한다. (router-view 느낌)
+ *    - useNavigate
+ *    - useParams
+ *    - useLocation
+ *    - useRoutes
+ *
+ */
+
+//HTML5 History API(pushState, replaceState 및 popstate 이벤트)를 사용하여 UI를 URL과 동기화된 상태로 유지해준다.
+
+//Routes :
