@@ -34,7 +34,7 @@ const Nav = () => {
         alt="Netflix logo"
         src={netflix_logo}
         className="nav__logo"
-        onClick={() => window.location.reload()}
+        onClick={() => navigate('/')}
       />
       <input
         value={searchValue}
