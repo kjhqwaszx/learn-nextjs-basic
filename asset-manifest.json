@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/learn-react-basic/static/css/main.a2898ef0.css",
+    "main.js": "/learn-react-basic/static/js/main.e3cc64f1.js",
+    "static/js/787.20e5b628.chunk.js": "/learn-react-basic/static/js/787.20e5b628.chunk.js",
+    "static/media/react_logo.png": "/learn-react-basic/static/media/react_logo.d5fe3b813dd229f4f4dd.png",
+    "static/media/netflix_logo.svg": "/learn-react-basic/static/media/netflix_logo.5787551b8de42aef368c379572555ada.svg",
+    "index.html": "/learn-react-basic/index.html",
+    "main.a2898ef0.css.map": "/learn-react-basic/static/css/main.a2898ef0.css.map",
+    "main.e3cc64f1.js.map": "/learn-react-basic/static/js/main.e3cc64f1.js.map",
+    "787.20e5b628.chunk.js.map": "/learn-react-basic/static/js/787.20e5b628.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2898ef0.css",
+    "static/js/main.e3cc64f1.js"
+  ]
+}
