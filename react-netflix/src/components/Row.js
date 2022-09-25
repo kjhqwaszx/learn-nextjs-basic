@@ -78,7 +78,7 @@ const Row = ({ isLargeRow, title, id, fetchUrl }) => {
         </div>
       </Swiper>
 
-      {modalOpen && <MovieModal {...movieSelected} setModalOpen={setModalOpen} />}
+      {modalOpen && <MovieModal {...selectedMovie} setModalOpen={setModalOpen} />}
     </section>
   );
   // Swiper 이전
