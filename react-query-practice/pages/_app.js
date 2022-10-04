@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import {useState} from "react";
-import {QueryClient, QueryClientProvider} from "react-query";
+import {QueryClient, Hydrate, QueryClientProvider} from "react-query";
 import {ReactQueryDevtools} from "react-query/devtools";
 
 function MyApp({ Component, pageProps }) {
@@ -11,7 +11,12 @@ function MyApp({ Component, pageProps }) {
   return(
     <>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+
+        {/*SSR 방식*/}
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
+
         {/*개발도구는 dev일 경우에만 나타난다.*/}
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right"></ReactQueryDevtools>
       </QueryClientProvider>

@@ -1,8 +1,8 @@
-import styles from '../styles/Home.module.css'
 import axios from 'axios'
-import {useQuery} from "react-query";
+import {QueryClient, useQuery, dehydrate} from "react-query";
 import {Fragment} from "react";
 import Link from "next/link";
+
 
 const  getPosts = async () =>{
   const { data } = await axios.get("http://localhost:5000/posts")
@@ -13,9 +13,7 @@ const  getPosts = async () =>{
 
 export default function Home() {
   const {data:posts, isLoading, isError, error} = useQuery("posts",getPosts,{
-    staleTime: 5 * 1000,
-    refetchOnMount: true,
-    refetchOnWindowFocus: true
+    refetchOnWindowFocus: false
   })
 
   if(isError){
@@ -68,3 +66,18 @@ export default function Home() {
     </>
   )
 }
+
+export const getServerSideProps = async() =>{
+  const queryClient = new QueryClient()
+  // queryKey: posts로 데이터를 서버단에서 prefetch시켜 놓는다.
+  // 클라이언트에서는 해당 쿼리키를 바로 사용할 수 있으며 화면이 mount된 이후 refetch가 일어난다.
+  // 클라이언트에서 refetch가 발생하는 것을 방지하려면 refetchOnMount를 false로 설정하거나 staleTime을 Infinity로 설정하면 된다.
+  await queryClient.prefetchQuery("posts", getPosts)
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient)
+    }
+  }
+}
+
