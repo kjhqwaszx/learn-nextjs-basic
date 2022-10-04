@@ -31,6 +31,12 @@ export default function Home() {
         <Link href="/dependentQueryPage">
           <a style={{marginRight: "1rem"}}> Dependent Queries Page</a>
         </Link>
+        <Link href="/paginatedQueryPage">
+          <a style={{marginRight: "1rem"}}> Paginated Queries Page</a>
+        </Link>
+        <Link href="/infiniteQueryPage">
+          <a style={{marginRight: "1rem"}}> Infinite Queries Page</a>
+        </Link>
       </nav>
 
       <div style={{margin: '10px'}}>

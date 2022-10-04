@@ -48,7 +48,7 @@ export default function Post({post}) {
     const getText = async () =>{
       const res = await fetch("/api/hello");
       const data = await res.json()
-      alert(data.text)
+      // alert(data.text)
     }
     getText()
   },[])
