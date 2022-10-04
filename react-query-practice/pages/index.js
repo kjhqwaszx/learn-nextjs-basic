@@ -37,6 +37,12 @@ export default function Home() {
         <Link href="/infiniteQueryPage">
           <a style={{marginRight: "1rem"}}> Infinite Queries Page</a>
         </Link>
+        <Link href="/todoPage1">
+          <a style={{marginRight: "1rem"}}> Mutation Page1</a>
+        </Link>
+        <Link href="/todoPage2">
+          <a style={{marginRight: "1rem"}}> Mutation Page2</a>
+        </Link>
       </nav>
 
       <div style={{margin: '10px'}}>
