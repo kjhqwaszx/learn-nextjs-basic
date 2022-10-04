@@ -40,7 +40,7 @@ export default function Home({posts}) {
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {posts.map(({ id, title, contents, createdAt  }) => (
-            <Link href={`/posts/${id}`}>
+            <Link href={`/posts/${id}`} replace>
               <li className={utilStyles.listItem} key={id}>
                 {id}
                 <br />

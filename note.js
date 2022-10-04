@@ -167,4 +167,18 @@ const Component = ({ a, b }) => {
 
 //HTML5 History API(pushState, replaceState 및 popstate 이벤트)를 사용하여 UI를 URL과 동기화된 상태로 유지해준다.
 
-//Routes :
+/**
+ * Next.js
+ * [ PreRendering ]
+ *  * 테스트를 할 때에는 build 한 후 start해야 한다.
+ * 1. SSG ( Server Side Generate )
+ *   -> getStaticProps
+ *   - 빌드를 하는 시점에서 API를 한번 호출한다. ( .next > server > 파일명.json 파일에 데이터까지 빌드 )
+ *   - 자주 바뀌지 않는 데이터의 경우에는 저장해 두는게 빠르다. ( 빌드 시점의 데이터 )
+ *   - pages 폴더 내 컴포넌트에서만 사용이 가능하다.
+ *   
+ * 2. SSR ( Server Side Rendering )
+ *  -> getServerSideProps
+ *  - 화면에 들어갈 때 마다 서버단에서 api를 호출하고 데이터를 받아와 화면에 노출시킨다. ( 실시간 데이터 )
+ *  - 서버에서 API를 호출해 화면을 그려주기 때문에 client에서 js conn을 끊어도 데이터가 나옴.
+ */

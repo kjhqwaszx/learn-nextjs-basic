@@ -3,11 +3,16 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import {useRouter} from "next/router";
 
 const name = 'Next.js Test';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
+  const router = useRouter()
+  console.log('home##: ', home)
+  console.log('children##: ', children)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -37,6 +42,7 @@ export default function Layout({ children, home }) {
               alt=""
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <button onClick={()=>router.back()}>router back</button>
           </>
         ) : (
           <>
@@ -52,6 +58,7 @@ export default function Layout({ children, home }) {
                 />
               </a>
             </Link>
+            <button onClick={()=>router.back()}>router back</button>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>
