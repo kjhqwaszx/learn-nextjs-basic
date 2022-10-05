@@ -10,7 +10,7 @@ const  getPost = async (query) =>{
     return data;
 }
 
-const postDetail = () => {
+const PostDetail = () => {
     const router = useRouter()
     const {id:postId} = router.query
 
@@ -44,4 +44,4 @@ const postDetail = () => {
     );
 };
 
-    export default postDetail;
+    export default PostDetail;
