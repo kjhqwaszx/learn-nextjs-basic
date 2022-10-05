@@ -171,14 +171,51 @@ const Component = ({ a, b }) => {
  * Next.js
  * [ PreRendering ]
  *  * 테스트를 할 때에는 build 한 후 start해야 한다.
+ *
  * 1. SSG ( Server Side Generate )
- *   -> getStaticProps
+ *   - getStaticPath( 동적 페이지를 생성할 수 있으며 getStaticProps 와 함께 사용해야 한다.
+ *   - getStaticProps
  *   - 빌드를 하는 시점에서 API를 한번 호출한다. ( .next > server > 파일명.json 파일에 데이터까지 빌드 )
  *   - 자주 바뀌지 않는 데이터의 경우에는 저장해 두는게 빠르다. ( 빌드 시점의 데이터 )
  *   - pages 폴더 내 컴포넌트에서만 사용이 가능하다.
- *   
+ */
+export const getStaticProps = async () =>{
+  // console.log를 찍게되면 화면이 아닌 서버에 찍힌다.
+  return{
+    props:{
+      users: {time: new Date().toISOString()}
+    }
+  }
+}
+// -> 홈에서는 time을 props로 받아 사용하면 된다.
+
+/**
  * 2. SSR ( Server Side Rendering )
  *  -> getServerSideProps
  *  - 화면에 들어갈 때 마다 서버단에서 api를 호출하고 데이터를 받아와 화면에 노출시킨다. ( 실시간 데이터 )
  *  - 서버에서 API를 호출해 화면을 그려주기 때문에 client에서 js conn을 끊어도 데이터가 나옴.
  */
+export const getServerSideProps = async () =>{
+  // console.log를 찍게되면 화면이 아닌 서버에 찍힌다.
+  return{
+    props:{
+      users: {time: new Date().toISOString()}
+    }
+  }
+}
+
+/**
+ * 3. ISR (Incremental Static Regeneration)
+ *  - getStaticProps with revalidate
+ *  - 증분 정적 사이트를 재생성한다. ( 특정 주기로 데이터를 가져와 SSG 동작 )
+ *  - SSR은 서버의 부하를 높이는 방식이다.( 사용량이 아주 많을 경우 ) 이를 위해 ISR을 사용하면 좋다.
+ */
+export const getStaticProps = async () =>{
+  // console.log를 찍게되면 화면이 아닌 서버에 찍힌다.
+  return{
+    props:{
+      users: {time: new Date().toISOString()},
+      revalidate:1
+    }
+  }
+}
