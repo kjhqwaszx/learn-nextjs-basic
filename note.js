@@ -219,3 +219,24 @@ export const getStaticProps = async () =>{
     }
   }
 }
+/**
+ * [Routing]
+ * - 페이지를 이동할 때 사용한다.
+ *
+ * 1. useRouter
+ *  - next/router에서 제공하는 api이다.
+ *
+ * 2. Link
+ *  - preFetching하는 도중에 Link태그가 존재하면 목적지 페이지도 preFetching 시켜놓는다.
+ *    이후 페이지 이동시 필요한 데이터만 CodeSplitting 하여 로딩하기 때문에 빠르다.
+ *     -> Production 모드에서 확인 가능
+ */
+
+//Router
+const router = useRouter();
+const {quey1, query2 ... query3} = router.query // 쿼리스트링 값에서 key값을 뽑아올 수 있다.
+return(<button onClick={()=>router.push('/')}> Go Home! </button>) // router.push()를 통해 이동할 수 있다.
+
+// Link
+<Link href="/"><a>Go Home!!</a></Link
+
