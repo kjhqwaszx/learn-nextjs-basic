@@ -1,10 +1,10 @@
-import Layout from "../../components/layout";
+import Layout from '../../components/Layout';
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5000/posts");
+  const res = await fetch('http://localhost:5000/posts');
   const posts = await res.json();
 
-  console.log("###", posts);
+  console.log('###', posts);
 
   return {
     props: {

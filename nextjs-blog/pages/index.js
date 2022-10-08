@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle } from '../components/Layout';
 import Link from 'next/link';
 import utilStyles from '../styles/utils.module.css';
 import axios from 'axios';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data: posts } = await axios('http://localhost:5000/posts');
 
   return {

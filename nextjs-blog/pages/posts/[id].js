@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -38,15 +38,6 @@ export default function Post({ post }) {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
-
-  useEffect(() => {
-    const getText = async () => {
-      const res = await fetch('/api/hello');
-      const data = await res.json();
-      // alert(data.text)
-    };
-    getText();
-  }, []);
 
   return (
     <Layout>

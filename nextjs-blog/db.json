@@ -17,7 +17,8 @@
       "title": "게시물3",
       "author": "끼리끼리",
       "description": "애기 소녀들의 이름과 다하지 별이 듯합니다. 이웃 쓸쓸함과 멀리 하나에 둘 별에도 별 소학교 계십니다. 이국 비둘기, 불러 거외다. 이네"
-    },{
+    },
+    {
       "id": 4,
       "title": "게시물3",
       "author": "끼리끼리",
@@ -28,8 +29,25 @@
       "title": "게시물3",
       "author": "끼리끼리",
       "description": "애기 소녀들의 이름과 다하지 별이 듯합니다. 이웃 쓸쓸함과 멀리 하나에 둘 별에도 별 소학교 계십니다. 이국 비둘기, 불러 거외다. 이네"
+    },
+    {
+      "id": "6",
+      "title": "test",
+      "author": "test",
+      "description": "tester"
+    },
+    {
+      "id": "7",
+      "title": "test",
+      "author": "test",
+      "description": "tester"
+    },
+    {
+      "id": "8",
+      "title": "test",
+      "author": "test",
+      "description": "test"
     }
-
   ],
   "users": [
     {

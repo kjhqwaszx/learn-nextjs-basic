@@ -1,11 +1,11 @@
-import Layout from "../../components/layout";
-import { useRouter } from "next/router";
+import Layout from '../../components/Layout';
+import { useRouter } from 'next/router';
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5000/posts");
+  const res = await fetch('http://localhost:5000/posts');
   const posts = await res.json();
 
-  console.log("###", posts);
+  console.log('###', posts);
 
   return {
     props: {
@@ -30,7 +30,7 @@ const ssr = ({ posts }) => {
             <br />
             {post.createdAt}
             <hr />
-            <button onClick={() => router.push("/about")}></button>
+            <button onClick={() => router.push('/about')}></button>
           </div>
         );
       })}
