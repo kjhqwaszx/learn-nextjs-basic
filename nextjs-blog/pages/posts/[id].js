@@ -13,8 +13,6 @@ export async function getStaticPaths() {
     params: { id: post.id.toString() },
   }));
 
-  console.log(paths);
-
   // 빌드가 실행될 때 pre-render 시켜 정적 파일로 저장. ( Fallback Option : false, true, blocking)
   // false인 경우에는 path에 없는 값이 들어오면 404에러를 내려준다.
   // true일 경우에는 화면을 새로 그려준다. 그려주는 동안에는 별도의 처리를 통해 Loading 화면을 보여준다.
