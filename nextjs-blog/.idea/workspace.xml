@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76294fc3-015c-417e-97bd-355f0c92c6ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/posts.js" beforeDir="false" />
+    <list default="true" id="76294fc3-015c-417e-97bd-355f0c92c6ba" name="Changes" comment="nextjs-blog project init">
+      <change afterPath="$PROJECT_DIR$/components/Date.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/layout.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/posts/[id].js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/pre-rendering.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts/ssg-ssr.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/profile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/utils.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/[id].js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/first-post.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/ssg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/ssr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/pre-rendering.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/ssg-ssr.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/profile.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vercel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vercel.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/global.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/utils.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react-netflix/.prettierrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/../react-netflix/.prettierrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../note.js" beforeDir="false" afterPath="$PROJECT_DIR$/../note.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +46,21 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/c/Desktop/Study/React/learn-react-basic/react-netflix/.prettierrc.js",
+    "last_opened_file_path": "C:/Users/c/Desktop/Study/React/learn-react-basic/nextjs-blog/public/images",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\c\\Desktop\\Study\\React\\learn-react-basic\\nextjs-blog\\node_modules\\prettier",
     "settings.editor.selected.configurable": "watcher.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\c\Desktop\Study\React\learn-react-basic\nextjs-blog\public\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\c\Desktop\Study\React\learn-react-basic\nextjs-blog\public" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,8 +69,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665214605260</updated>
-      <workItem from="1665214606363" duration="667000" />
+      <workItem from="1665214606363" duration="6849000" />
     </task>
+    <task id="LOCAL-00001" summary="nextjs-blog project init">
+      <created>1665215351970</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665215351970</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,5 +94,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="nextjs-blog project init" />
+    <option name="LAST_COMMIT_MESSAGE" value="nextjs-blog project init" />
   </component>
 </project>

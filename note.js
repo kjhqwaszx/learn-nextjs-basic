@@ -230,6 +230,8 @@ export const getStaticProps = async () =>{
  *  - preFetching하는 도중에 Link태그가 존재하면 목적지 페이지도 preFetching 시켜놓는다.
  *    이후 페이지 이동시 필요한 데이터만 CodeSplitting 하여 로딩하기 때문에 빠르다.
  *     -> Production 모드에서 확인 가능
+ *  - a태그와는 다른점은 Link는 Client Side Navigate를 한다는 점이다.
+ *    => 페이지를 다시 띄우는게 아니라 동일한 화면에서 컴포넌트 이동을 하는 것이다. ( 깜빡임 없음 )
  */
 
 //Router
@@ -239,4 +241,20 @@ return(<button onClick={()=>router.push('/')}> Go Home! </button>) // router.pus
 
 // Link
 <Link href="/"><a>Go Home!!</a></Link
+
+/**
+ * [기타 태그]
+ *
+ * 1. Image
+ *   - Resizing: 자동으로 이미지 크기를 조절해 준다.
+ *   - Lazy Load: viewport에 이미지가 들어올 떄 로드한다.
+ *     -> 이미지가 화면 하단에 있을경우 스크롤링 해서 이미지를 보여줘야 할 시점에 로드
+ *   - Optimization(최적화): 파일 포맷을 Webp로 바꾸어 파일 용량을 줄인다.
+ *
+ * 2. Head
+ *   - title, image, description, third party script(GA) 등을 컴포넌트에서 간편하게 선언할 수 있다
+ *   - OG태그(Open Graph _ 공유하기 시 나오는 화면)
+ *   -
+ *
+ */
 
