@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76294fc3-015c-417e-97bd-355f0c92c6ba" name="Changes" comment="nextjs-blog project init">
-      <change afterPath="$PROJECT_DIR$/components/Date.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/layout.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/posts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/posts/[id].js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/pre-rendering.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/posts/ssg-ssr.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/profile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/utils.module.css" afterDir="false" />
+    <list default="true" id="76294fc3-015c-417e-97bd-355f0c92c6ba" name="Changes" comment="blog 원복2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/posts/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[id].js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../note.js" beforeDir="false" afterPath="$PROJECT_DIR$/../note.js" afterDir="false" />
     </list>
@@ -46,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/c/Desktop/Study/React/learn-react-basic/nextjs-blog/public/images",
+    "last_opened_file_path": "C:/Users/c/Desktop/Study/React/learn-react-basic/note.js",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\c\\Desktop\\Study\\React\\learn-react-basic\\nextjs-blog\\node_modules\\prettier",
     "settings.editor.selected.configurable": "watcher.settings",
@@ -97,6 +87,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nextjs-blog project init" />
-    <option name="LAST_COMMIT_MESSAGE" value="nextjs-blog project init" />
+    <MESSAGE value="blog 원복2" />
+    <option name="LAST_COMMIT_MESSAGE" value="blog 원복2" />
   </component>
 </project>

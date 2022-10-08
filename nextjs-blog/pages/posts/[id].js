@@ -1,12 +1,12 @@
-import Layout from "../../components/layout";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import Layout from '../../components/layout';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export async function getStaticPaths() {
   // posts 데이터 Fetch
-  const res = await fetch("http://localhost:5000/posts");
-  const posts = await res.json();
+  const { data: posts } = await axios.get('http://localhost:5000/posts');
 
   //pre-render 시킬 Path 설정
   const paths = posts.map((post) => ({
@@ -22,15 +22,14 @@ export async function getStaticPaths() {
   // 그려지는 화면은 정적으로 생성되는건 아니고, 다시 들어가면 그린다.
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 export const getStaticProps = async ({ params }) => {
-  console.log(params);
-  const res = await fetch(`http://localhost:5000/posts/${params.id}`);
-  const post = await res.json();
-
-  console.log(post);
+  const { data: post } = await axios.get(
+    `http://localhost:5000/posts/${params.id}`,
+  );
+  console.log('###post', post);
   //해당 페이지에 props로 전달
   return { props: { post } };
 };
@@ -44,7 +43,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const getText = async () => {
-      const res = await fetch("/api/hello");
+      const res = await fetch('/api/hello');
       const data = await res.json();
       // alert(data.text)
     };
@@ -60,9 +59,7 @@ export default function Post({ post }) {
       <br />
       {post.title}
       <br />
-      {post.content}
-      <br />
-      {post.createdAt}
+      {post.description}
       <br />
     </Layout>
   );

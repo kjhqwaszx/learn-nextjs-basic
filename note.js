@@ -267,7 +267,8 @@ return(<button onClick={()=>router.push('/')}> Go Home! </button>) // router.pus
  *         1.fase: 파일이 없을경우 404
  *         2.true: 빌드 시점에는 페이지가 없었다가 요청이 들어온 후에 페이지가 있을경우 페이지를 만들어 제공한다.
  *                 router.isFallback 을 통해 그려질동안 보여질 화면을 설정할 수 있다.
- *         3.'blocking':
+ *         3.'blocking': treu와 같이 없는 페이지의 경우 요청 시점에 다시 그려준다. true와 다른점은 그려질 동안 보여질 화면이 없다.
+ *
  *
  *
  */
