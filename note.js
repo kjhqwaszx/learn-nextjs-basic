@@ -299,3 +299,19 @@ export async function getStaticProps({ params }) {
   };
 }
 
+/**
+ * [기타 태그]
+ *
+ * 1. Image
+ *   - Resizing: 자동으로 이미지 크기를 조절해 준다.
+ *   - Lazy Load: viewport에 이미지가 들어올 떄 로드한다.
+ *     -> 이미지가 화면 하단에 있을경우 스크롤링 해서 이미지를 보여줘야 할 시점에 로드
+ *   - Optimization(최적화): 파일 포맷을 Webp로 바꾸어 파일 용량을 줄인다.
+ *
+ * 2. Head
+ *   - title, image, description, third party script(GA) 등을 컴포넌트에서 간편하게 선언할 수 있다
+ *   - OG태그(Open Graph _ 공유하기 시 나오는 화면)
+ *   -
+ *
+ */
+
