@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76294fc3-015c-417e-97bd-355f0c92c6ba" name="Changes" comment="json-server 설치">
-      <change afterPath="$PROJECT_DIR$/pages/post/write.js" afterDir="false" />
+    <list default="true" id="76294fc3-015c-417e-97bd-355f0c92c6ba" name="Changes" comment="ui framework 설치">
+      <change afterPath="$PROJECT_DIR$/public/dark-mode.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/light-mode.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[id].js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/first-post.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/first-post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/ssg.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/ssg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/ssr.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/ssr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layout.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/utils.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/utils.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +36,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/c/Desktop/Study/React/learn-react-basic/note.js",
+    "last_opened_file_path": "C:/Users/c/Desktop/Study/React/learn-react-basic/nextjs-blog/public",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\c\\Desktop\\Study\\React\\learn-react-basic\\nextjs-blog\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "watcher.settings",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\c\Desktop\Study\React\learn-react-basic\nextjs-blog\public" />
       <recent name="C:\Users\c\Desktop\Study\React\learn-react-basic\nextjs-blog\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -83,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665240993562</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ui framework 설치">
+      <created>1665248044758</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665248044758</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +111,7 @@
     <MESSAGE value="nextjs-blog project init" />
     <MESSAGE value="blog 원복2" />
     <MESSAGE value="json-server 설치" />
-    <option name="LAST_COMMIT_MESSAGE" value="json-server 설치" />
+    <MESSAGE value="ui framework 설치" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui framework 설치" />
   </component>
 </project>
