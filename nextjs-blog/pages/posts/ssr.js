@@ -1,43 +1,41 @@
-import Layout from '../../components/layout';
-import { useRouter } from 'next/router'
+import Layout from "../../components/layout";
+import { useRouter } from "next/router";
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:5000/posts")
-  const posts = await res.json()
+  const res = await fetch("http://localhost:5000/posts");
+  const posts = await res.json();
 
-  console.log('###', posts)
+  console.log("###", posts);
 
-  return{
-    props:{
-      posts
-    }
-  }
+  return {
+    props: {
+      posts,
+    },
+  };
+};
 
-}
-
-const ssr = ({posts}) =>{
-  const router = useRouter()
-  return(
+const ssr = ({ posts }) => {
+  const router = useRouter();
+  return (
     <Layout>
       <h1>Server Side Rendering</h1>
-      {posts.map((post)=>{
-        return(
+      {posts.map((post) => {
+        return (
           <div key={post.id}>
             {post.id}
-            <br/>
+            <br />
             {post.title}
-            <br/>
+            <br />
             {post.content}
-            <br/>
+            <br />
             {post.createdAt}
-            <hr/>
-            <button onClick={()=>router.push('/about')}></button>
+            <hr />
+            <button onClick={() => router.push("/about")}></button>
           </div>
-        )
+        );
       })}
-
     </Layout>
-  )
-}
+  );
+};
 
 export default ssr;

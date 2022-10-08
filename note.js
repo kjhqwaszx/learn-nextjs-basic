@@ -33,33 +33,34 @@
  *  - useCallback: useCallback으로 선언한 함수는 메모리에 다시 할당되더라도 의존 변수가 바뀌지 않으면 기존의 함수 사용(메모리에 함수 재할당x)
  *    -> 이 부분은 React.memo와 연관이 있고, 경렬님이 말씀해주신 클로저의 단점을 보완할 수 있는 요소이다.
  *      < react-todo-app 내용 확인 >
-     *  const handleClick = useCallback((id) => {
-     *   let newTodoData = todoData.filter((data) => data.id !== id);
-     *   setTodoData(newTodoData);
-     * }, todoData); // todoData를 의존 변수로 설정
+ *  const handleClick = useCallback((id) => {
+ *   let newTodoData = todoData.filter((data) => data.id !== id);
+ *   setTodoData(newTodoData);
+ * }, todoData); // todoData를 의존 변수로 설정
  *
  *  - useMemo: 선언한 함수를 다시 호출하지 않고 캐싱된 데이터를 return. defs 값이 변경되면 함수 호출
-     *  // compute 함수가 비용이 많이 든다고 가정.
-     * const Component = ({ a, b }) => {
-     *   const result = compute(a, b);
-     *   return <div>{result} </div>;
-     * };
-     *
-     * // a,b 가 동일 할 경우 캐시된 데이터를 반환한다.
-     * const Component = ({ a, b }) => {
-     *   const result = useMemo(() => compute(a, b), [a, b]); // [a,b] 의존성 변수
-     *   return <div>{result}</div>;
-     * };
+ *  // compute 함수가 비용이 많이 든다고 가정.
+ * const Component = ({ a, b }) => {
+ *   const result = compute(a, b);
+ *   return <div>{result} </div>;
+ * };
+ *
+ * // a,b 가 동일 할 경우 캐시된 데이터를 반환한다.
+ * const Component = ({ a, b }) => {
+ *   const result = useMemo(() => compute(a, b), [a, b]); // [a,b] 의존성 변수
+ *   return <div>{result}</div>;
+ * };
  **/
 
 /**
-  [ state 관리 ]
-    - const [변수명, set변수 ] = useState(value) 형태로 선언해 사용한다.
-    - setter부분에서 화살표 함수로 파라미터를 전달하면 oldValue가 전달된다.
-*/
+ [ state 관리 ]
+ - const [변수명, set변수 ] = useState(value) 형태로 선언해 사용한다.
+ - setter부분에서 화살표 함수로 파라미터를 전달하면 oldValue가 전달된다.
+ */
 
 import React, { useState } from "react";
 import List from "./react-todo-app/src/components/List";
+import {getAllPostIds, getPostData} from "./nextjs-blog/lib/posts";
 const [todoData, setTodoData] = useState([]);
 
 setTodoData((prev) => [...prev, newTodo]);
@@ -87,7 +88,7 @@ const studentDetail2 = {
 
 // fisrtName 값을 fName변수로 사용할 것이고, 값이 넘어오지 않으면 not given 사용
 const { firstName: fName = "not given", lastName: lName = "not given" } =
-  studentDetail;
+    studentDetail;
 
 /**
  * [ React.memo ]
@@ -103,8 +104,8 @@ const Lists = React.memo(({ todoData, setTodoData, testMethods }) => {
   // ...
 
   return (
-    // 드레그를 놓았을때의 위치 값으로 todoData배열 재설정
-    <div>...</div>
+      // 드레그를 놓았을때의 위치 값으로 todoData배열 재설정
+      <div>...</div>
   );
 });
 
@@ -230,6 +231,8 @@ export const getStaticProps = async () =>{
  *  - preFetching하는 도중에 Link태그가 존재하면 목적지 페이지도 preFetching 시켜놓는다.
  *    이후 페이지 이동시 필요한 데이터만 CodeSplitting 하여 로딩하기 때문에 빠르다.
  *     -> Production 모드에서 확인 가능
+ *  - a태그와는 다른점은 Link는 Client Side Navigate를 한다는 점이다.
+ *    => 페이지를 다시 띄우는게 아니라 동일한 화면에서 컴포넌트 이동을 하는 것이다. ( 깜빡임 없음 )
  */
 
 //Router
@@ -237,6 +240,62 @@ const router = useRouter();
 const {quey1, query2 ... query3} = router.query // 쿼리스트링 값에서 key값을 뽑아올 수 있다.
 return(<button onClick={()=>router.push('/')}> Go Home! </button>) // router.push()를 통해 이동할 수 있다.
 
-// Link
-<Link href="/"><a>Go Home!!</a></Link
+    // Link
+    <Link href="/"><a>Go Home!!</a></Link
+
+/**
+ * [기타 태그]
+ *
+ * 1. Image
+ *   - Resizing: 자동으로 이미지 크기를 조절해 준다.
+ *   - Lazy Load: viewport에 이미지가 들어올 떄 로드한다.
+ *     -> 이미지가 화면 하단에 있을경우 스크롤링 해서 이미지를 보여줘야 할 시점에 로드
+ *   - Optimization(최적화): 파일 포맷을 Webp로 바꾸어 파일 용량을 줄인다.
+ *
+ * 2. Head
+ *   - title, image, description, third party script(GA) 등을 컴포넌트에서 간편하게 선언할 수 있다
+ *   - OG태그(Open Graph _ 공유하기 시 나오는 화면)
+ *   -
+ */
+
+/**
+ * [ Dynamic Routes ]
+ *  - getStaticPaths 와 getStaticProps를 통해 동적으로 페이지를 미리 그려놓는다. ( SSG )
+ *  - getStaticPaths는 paths와 fallback 을 return 해주어야 한다.
+ *    -> paths: 만들어 놓을 화면
+ *    -> fallback:
+ *         1.fase: 파일이 없을경우 404
+ *         2.true: 빌드 시점에는 페이지가 없었다가 요청이 들어온 후에 페이지가 있을경우 페이지를 만들어 제공한다.
+ *                 router.isFallback 을 통해 그려질동안 보여질 화면을 설정할 수 있다.
+ *         3.'blocking':
+ *
+ *
+ */
+
+export async function getStaticPaths() {
+
+  const  paths =
+      [
+        {
+          params: { id: 'ssg-ssr' }
+        },
+        {
+          params: {id: 'pre-rendering'}
+        }
+      ]
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+export async function getStaticProps({ params }) {
+  console.log(params);
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData,
+    },
+  };
+}
 

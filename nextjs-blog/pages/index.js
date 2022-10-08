@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import Link from 'next/link'
-import utilStyles from '../styles/utils.module.css';
+import Head from "next/head";
+import Layout, { siteTitle } from "../components/layout";
+import Link from "next/link";
+import utilStyles from "../styles/utils.module.css";
 
 // export async function getStaticProps() {
 //   const allPostsData = getSortedPostsData();
@@ -13,8 +13,8 @@ import utilStyles from '../styles/utils.module.css';
 // }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:5000/posts")
-  const posts = await res.json()
+  const res = await fetch("http://localhost:5000/posts");
+  const posts = await res.json();
 
   return {
     props: {
@@ -23,7 +23,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({posts}) {
+export default function Home({ posts }) {
   return (
     <Layout home>
       <Head>
@@ -32,14 +32,14 @@ export default function Home({posts}) {
       <section className={utilStyles.headingMd}>
         <p>[Your Self Introduction]</p>
         <p>
-          (This is a sample website - you ’ll be building a site like this on{' '}
+          (This is a sample website - you ’ll be building a site like this on{" "}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {posts.map(({ id, title, contents, createdAt  }) => (
+          {posts.map(({ id, title, contents, createdAt }) => (
             <Link href={`/posts/${id}`} replace>
               <li className={utilStyles.listItem} key={id}>
                 {id}
@@ -49,7 +49,7 @@ export default function Home({posts}) {
                 {contents}
                 <br />
                 {createdAt}
-                <hr/>
+                <hr />
               </li>
             </Link>
           ))}

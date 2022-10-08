@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
-import {useRouter} from "next/router";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const name = 'Next.js Test';
-export const siteTitle = 'Next.js Sample Website';
+const name = "Next.js Test";
+export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
-  const router = useRouter()
-  console.log('home##: ', home)
-  console.log('children##: ', children)
+  const router = useRouter();
+  console.log("home##: ", home);
+  console.log("children##: ", children);
 
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
+            siteTitle
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
@@ -42,7 +42,7 @@ export default function Layout({ children, home }) {
               alt=""
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
-            <button onClick={()=>router.back()}>router back</button>
+            <button onClick={() => router.back()}>router back</button>
           </>
         ) : (
           <>
@@ -58,7 +58,7 @@ export default function Layout({ children, home }) {
                 />
               </a>
             </Link>
-            <button onClick={()=>router.back()}>router back</button>
+            <button onClick={() => router.back()}>router back</button>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
                 <a className={utilStyles.colorInherit}>{name}</a>

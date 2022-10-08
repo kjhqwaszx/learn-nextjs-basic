@@ -1,39 +1,37 @@
-import Layout from '../../components/layout';
+import Layout from "../../components/layout";
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5000/posts")
-  const posts = await res.json()
+  const res = await fetch("http://localhost:5000/posts");
+  const posts = await res.json();
 
-  console.log('###', posts)
+  console.log("###", posts);
 
-  return{
-    props:{
-      posts
-    }
-  }
-
-}
-const ssg = ({posts}) =>{
-  return(
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+const ssg = ({ posts }) => {
+  return (
     <Layout>
       <h1>Server Side Generate</h1>
-      {posts.map((post)=>{
-        return(
+      {posts.map((post) => {
+        return (
           <div key={post.id}>
             {post.id}
-            <br/>
+            <br />
             {post.title}
-            <br/>
+            <br />
             {post.content}
-            <br/>
+            <br />
             {post.createdAt}
-            <hr/>
+            <hr />
           </div>
-        )
+        );
       })}
-
     </Layout>
-  )
-}
+  );
+};
 
 export default ssg;

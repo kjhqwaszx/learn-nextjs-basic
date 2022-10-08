@@ -1,20 +1,19 @@
-import Layout from '../../components/layout';
-import Head from 'next/head'
-import {useRouter} from "next/router";
-import {useEffect} from "react";
-
+import Layout from "../../components/layout";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export async function getStaticPaths() {
   // posts 데이터 Fetch
-  const res = await fetch('http://localhost:5000/posts')
+  const res = await fetch("http://localhost:5000/posts");
   const posts = await res.json();
 
   //pre-render 시킬 Path 설정
   const paths = posts.map((post) => ({
-    params:{id: post.id.toString()}
-  }))
+    params: { id: post.id.toString() },
+  }));
 
-  console.log(paths)
+  console.log(paths);
 
   // 빌드가 실행될 때 pre-render 시켜 정적 파일로 저장. ( Fallback Option : false, true, blocking)
   // false인 경우에는 path에 없는 값이 들어오면 404에러를 내려준다.
@@ -26,46 +25,45 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-export const getStaticProps = async ({params}) => {
-  console.log(params)
-  const res = await fetch(`http://localhost:5000/posts/${params.id}`)
-  const post = await res.json()
+export const getStaticProps = async ({ params }) => {
+  console.log(params);
+  const res = await fetch(`http://localhost:5000/posts/${params.id}`);
+  const post = await res.json();
 
-  console.log(post)
+  console.log(post);
   //해당 페이지에 props로 전달
-  return { props: {post} }
-}
+  return { props: { post } };
+};
 
-export default function Post({post}) {
+export default function Post({ post }) {
+  const router = useRouter();
 
-  const router = useRouter()
-
-  if(router.isFallback){
-    return <div>Loading...</div>
+  if (router.isFallback) {
+    return <div>Loading...</div>;
   }
 
-  useEffect(()=>{
-    const getText = async () =>{
+  useEffect(() => {
+    const getText = async () => {
       const res = await fetch("/api/hello");
-      const data = await res.json()
+      const data = await res.json();
       // alert(data.text)
-    }
-    getText()
-  },[])
+    };
+    getText();
+  }, []);
 
   return (
-      <Layout>
-        <Head>
-          <title>{post.title}</title>
-        </Head>
-        {post.id}
-        <br/>
-        {post.title}
-        <br/>
-        {post.content}
-        <br/>
-        {post.createdAt}
-        <br/>
-      </Layout>
+    <Layout>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
+      {post.id}
+      <br />
+      {post.title}
+      <br />
+      {post.content}
+      <br />
+      {post.createdAt}
+      <br />
+    </Layout>
   );
 }
