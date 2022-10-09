@@ -6,11 +6,13 @@ import { useEffect, useRef, useState } from 'react';
 export default function Home() {
   const inputRef = useRef(null);
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch('/api/get-items')
       .then((res) => res.json())
       .then((data) => setProducts(data.items));
   }, []);
+
   const handleClick = () => {
     if (inputRef.current == null || inputRef.current.value === '') {
       alert('이름을 입력해 주세요');
@@ -19,6 +21,12 @@ export default function Home() {
     fetch(`/api/add-item?name=${inputRef.current.value}`)
       .then((res) => res.json())
       .then((data) => alert(data.message));
+  };
+
+  const getDetailInfo = (item, value) => {
+    fetch(`/api/get-detail?pageId=${item.id}&propertyId=${value.id}`)
+      .then((res) => res.json())
+      .then((data) => alert(JSON.stringify(data)));
   };
 
   return (
@@ -40,8 +48,19 @@ export default function Home() {
           <p>Product List</p>
           {products &&
             products.map((item) => (
-              <div key={item}>
+              <div key={item.id}>
                 {JSON.stringify(item)}
+                {item.properties &&
+                  Object.entries(item.properties).map(([key, value]) => (
+                    <button
+                      key={key}
+                      onClick={() => {
+                        getDetailInfo(item, value);
+                      }}
+                    >
+                      {key}
+                    </button>
+                  ))}
                 <br />
                 <br />
               </div>
