@@ -7,8 +7,13 @@ export default function Home() {
   const inputRef = useRef(null);
   const [products, setProducts] = useState([]);
 
+  // useEffect(() => {
+  //   fetch('/api/get-items')
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data.items));
+  // }, []);
   useEffect(() => {
-    fetch('/api/get-items')
+    fetch('/api/get-products')
       .then((res) => res.json())
       .then((data) => setProducts(data.items));
   }, []);
@@ -49,22 +54,30 @@ export default function Home() {
           {products &&
             products.map((item) => (
               <div key={item.id}>
-                {JSON.stringify(item)}
-                {item.properties &&
-                  Object.entries(item.properties).map(([key, value]) => (
-                    <button
-                      key={key}
-                      onClick={() => {
-                        getDetailInfo(item, value);
-                      }}
-                    >
-                      {key}
-                    </button>
-                  ))}
-                <br />
-                <br />
+                {item.name} <p>{item.createdAt}</p>
               </div>
             ))}
+
+          {/*Notion API 버전*/}
+          {/*{products &&*/}
+          {/*  products.map((item) => (*/}
+          {/*    <div key={item.id}>*/}
+          {/*      {JSON.stringify(item)}*/}
+          {/*      {item.properties &&*/}
+          {/*        Object.entries(item.properties).map(([key, value]) => (*/}
+          {/*          <button*/}
+          {/*            key={key}*/}
+          {/*            onClick={() => {*/}
+          {/*              getDetailInfo(item, value);*/}
+          {/*            }}*/}
+          {/*          >*/}
+          {/*            {key}*/}
+          {/*          </button>*/}
+          {/*        ))}*/}
+          {/*      <br />*/}
+          {/*      <br />*/}
+          {/*    </div>*/}
+          {/*  ))}*/}
         </div>
       </main>
 
