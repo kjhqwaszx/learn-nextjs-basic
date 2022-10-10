@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel';
 import CustomEditor from '../../../components/Editor';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { useRouter } from 'next/router';
-import { EditorState } from 'draft-js';
+import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 
 const images = [
   {
@@ -80,8 +80,23 @@ const Index = () => {
   }, [productId]);
 
   const handleSave = () => {
-    alert('save');
+    if (editorState) {
+      fetch('/api/update-product', {
+        method: 'POST',
+        body: JSON.stringify({
+          id: productId,
+          contents: JSON.stringify(
+            convertToRaw(editorState.getCurrentContent()),
+          ),
+        }),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          alert('Success');
+        });
+    }
   };
+
   return (
     <>
       <Carousel withoutControls wrapAround slideIndex={index} animation="fade">
