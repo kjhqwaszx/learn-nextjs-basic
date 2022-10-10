@@ -317,3 +317,15 @@ export async function getStaticProps({ params }) {
  *
  */
 
+
+/**
+ * [Bot에게 보여질 부분]
+ * SEO 및 공유시 보여줄 화면 등등이 해당된다.
+ * 이를 위해 robots.txt와 sitemap 설정을 해주어야 한다.
+ *
+ */
+
+/**
+ * [ 에디터 ]
+ *  - draft.js 기반 react-draft-wysiwyg ( 위즈윅 ) 사용
+ */

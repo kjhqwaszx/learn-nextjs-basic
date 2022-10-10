@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Carousel from 'nuka-carousel';
+import Head from 'next/head';
 
 const images = [
   {
@@ -58,11 +59,31 @@ const images = [
   },
 ];
 
-const Products = () => {
+const Index = () => {
   const [index, setIndex] = useState(0);
   // return <ImageGallery items={images} />;
   return (
     <>
+      <Head>
+        <meta
+          property="og:url"
+          content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html"
+        />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content="When Great Minds Don’t Think Alike"
+        />
+        <meta
+          property="og:description"
+          content="How much does culture influence creative thinking?"
+        />
+        <meta
+          property="og:image"
+          content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg"
+        />
+      </Head>
+
       <Carousel withoutControls wrapAround slideIndex={index} animation="fade">
         {images.map((item) => (
           <Image
@@ -71,13 +92,14 @@ const Products = () => {
             width={1000}
             height={600}
             layout="responsive"
+            alt="img"
           />
         ))}
       </Carousel>
       <div style={{ display: 'flex' }}>
         {images.map((item, idx) => (
           <div key={idx} onClick={() => setIndex(idx)}>
-            <Image src={item.original} width={100} height={60} />
+            <Image src={item.original} width={100} height={60} alt="img" />
           </div>
         ))}
       </div>
@@ -85,4 +107,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Index;
