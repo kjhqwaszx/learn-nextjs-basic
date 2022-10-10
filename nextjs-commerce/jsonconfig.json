@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"]
-    }
+    },
+    "types": ["@emotion/react/types/css-prop"]
   }
 }
