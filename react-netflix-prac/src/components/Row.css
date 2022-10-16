@@ -108,7 +108,7 @@ h2 {
 .row__arrow-right {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 0px;
     height: 100%;
     width: 32px;
     background: rgba(0, 0, 0, 0.2);
