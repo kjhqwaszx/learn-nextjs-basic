@@ -18,7 +18,9 @@ const Banner = () => {
 
     //영화 하나 선택하기
     const movieId =
-      request.data.results[Math.floor(Math.random() * request.data.results.length)].id;
+      request.data.results[
+        Math.floor(Math.random() * request.data.results.length)
+      ].id;
 
     //특정 영화의 상세 정보 가져오기
     const { data: movieDetail } = await axios.get(`movie/${movieId}`, {
@@ -59,7 +61,9 @@ const Banner = () => {
             </button>
             <button className="banner__button info"> More Information</button>
           </div>
-          <h1 className="banner__description">{truncate(movie.overview, 100)}</h1>
+          <h1 className="banner__description">
+            {truncate(movie.overview, 100)}
+          </h1>
         </div>
         <div className="banner--fadeBottom"></div>
       </header>
